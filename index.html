@@ -8,6 +8,11 @@
       }   
       body {
         font-family: Arial, Helvetica, sans-serif;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
       }
       .name1 {
         color: green;
@@ -25,20 +30,53 @@
         "Bonjour le monde!" // french
       ]
       let greetingsIdx = 0
+
       function changeMessage(greetingElement) {
         greetingsIdx = greetingsIdx + 1
+        if (greetingsIdx === 3) {
+          greetingsIdx = 0
+        }
         greetingElement.innerText = greetings[greetingsIdx]
       }
     </script>
   </head>
   <!-- "body" lists what your web page CONTAINS -->
   <body>  
-    <canvas id="kara-walker" width="400px" height="400px"></canvas>
+    <canvas id="kara-walker" width="600px" height="400px"></canvas>
     <script>
         const canvas = document.getElementById('kara-walker')
         const ctx = canvas.getContext('2d')
-        ctx.fillStyle = "#f64279"
-        ctx.fillRect(150,150,100,100,100,140)
+
+        const hero = new Image()
+        hero.src = 'hero.png' 
+
+      //   ctx.strokeStyle = 'yellow'
+      //   ctx.beginPath()
+      //   ctx.moveTo(300, 50)
+      //   ctx.lineTo(400, 75)
+      //   ctx.lineTo(400, 25)
+      //   ctx.closePath()
+      //   ctx.fill()
+      //  // Draw a smiley face
+      //   ctx.beginPath()
+      //   ctx.arc(75, 75, 50, 0, Math.PI * 2); // Outer circle
+      //   ctx.moveTo(110, 75);
+      //   ctx.arc(75, 75, 35, 0, Math.PI, false);  // Mouth (clockwise)
+      //   ctx.moveTo(65, 65);
+      //   ctx.arc(60, 65, 5, 0, Math.PI * 2, true);  // Left eye
+      //   ctx.moveTo(95, 65);
+      //   ctx.arc(90, 65, 5, 0, Math.PI * 2, true);  // Right eye
+      //   ctx.closePath()
+      //   ctx.stroke();
+
+      //   ctx.fillStyle = "#f64279"
+      //   ctx.fillRect(150,150,100,100,100,140)
+        
+        function draw() {
+          ctx.drawImage(hero, 0, 0, 16,16,300,200,32,32) 
+          // ctx.drawImage(image, sourceX, sourceY, sourceWidth, sourceHeight, destinationX, destinationY, destinationWidth, destinationHeight)
+        }
+
       </script>
     <h1 id="greeting" onClick="changeMessage(this)">Hello, world!</h1>
     <p>
@@ -47,5 +85,6 @@
       and
       <span class="name2">Riley</span>
     </p>
+    
   </body>
 </html>
