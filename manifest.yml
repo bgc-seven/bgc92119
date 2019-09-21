@@ -1,5 +1,5 @@
 ---
 applications:
-  - name: bgc1-website
+  - name: bgc7-website
     memory: 64M
     buildpack: staticfile_buildpack
